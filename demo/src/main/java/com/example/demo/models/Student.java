@@ -1,8 +1,11 @@
 package com.example.demo.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+@Entity
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,7 +14,9 @@ public class Student {
     private int age;
     private int grade;
 
-
+    public Student() {
+        // Default constructor for JPA
+    }
     public Student(String name, int age, int grade) {
         this.name = name;
         this.age = age;
