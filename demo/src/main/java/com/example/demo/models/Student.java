@@ -1,16 +1,21 @@
 package com.example.demo.models;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 public class Student {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private int age;
+    private int grade;
 
-    public Student() {
-    }
 
-    public Student(String name, int age) {
+    public Student(String name, int age, int grade) {
         this.name = name;
         this.age = age;
+        this.grade = 0; // Default grade
     }
 
     public String getName() {
@@ -27,6 +32,22 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
 
